@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREFINS Launcher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .launcher {
+            max-width: 600px;
+            background-color: #111111;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            color: #39FF14;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .button {
+            display: block;
+            padding: 15px 25px;
+            background-color: #39FF14;
+            color: #000000;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .button:hover {
+            background-color: #2de00f;
+            transform: translateY(-2px);
+        }
+        .instructions {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #B3B3B3;
+            text-align: left;
+        }
+        .instructions h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+        .instructions ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="launcher">
+        <h1>GREFINS Website Launcher</h1>
+        <p>Click one of the buttons below to open the GREFINS website</p>
+        
+        <div class="buttons">
+            <a href="index.html" class="button">Open Full Website</a>
+            <a href="simple.html" class="button">Open Simple Version</a>
+        </div>
+        
+        <div class="instructions">
+            <h2>Troubleshooting Instructions:</h2>
+            <ul>
+                <li>If the website doesn't open, try using a different browser (Chrome, Firefox, Edge)</li>
+                <li>Make sure all files are in the same folder</li>
+                <li>Try right-clicking on index.html and select "Open with" your browser</li>
+                <li>If using a security software, check if it's blocking local file access</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Simple script to detect if the page loaded properly
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Launcher loaded successfully');
+        });
+    </script>
+</body>
+</html>

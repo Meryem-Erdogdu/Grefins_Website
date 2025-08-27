@@ -1,0 +1,48 @@
+HOW TO OPEN THE GREFINS WEBSITE
+===============================
+
+METHOD 1: USING THE BATCH FILE (RECOMMENDED FOR WINDOWS)
+--------------------------------------------------------
+1. Double-click on "open-grefins-website.bat"
+2. Select an option:
+   - Option 1: Opens the website in your default browser
+   - Option 2: Starts a local server (requires Python installed)
+   - Option 3: Opens the simplified version of the website
+
+METHOD 2: USING THE HTML LAUNCHER
+---------------------------------
+1. Double-click on "website-launcher.html"
+2. Click on one of the buttons:
+   - "Open Main Website" - Opens the full website
+   - "Open Simplified Version" - Opens a simplified version
+   - "Start Local Server" - Shows instructions for starting the server
+
+METHOD 3: DIRECT FILE OPENING
+-----------------------------
+1. Right-click on "index.html"
+2. Select "Open with" and choose your preferred browser
+3. If that doesn't work, try:
+   - Left-click on "index.html" once
+   - Press ALT+F and then O (File -> Open in most browsers)
+
+METHOD 4: USING PYTHON SCRIPT
+-----------------------------
+1. Double-click on "open-website.py"
+2. Follow the on-screen instructions
+
+METHOD 5: STARTING A LOCAL SERVER
+---------------------------------
+1. Double-click on "start-server.bat" (requires Python installed)
+2. Once the server starts, open your browser and go to:
+   http://localhost:8000
+
+TROUBLESHOOTING
+---------------
+- If the website doesn't open, make sure all files are in the same folder
+- Make sure your browser is up to date
+- If you see security warnings, this is normal for local files
+- For the contact form to work properly, use the local server method (Method 5)
+
+CONTACT FORM
+------------
+All messages sent through the contact form will be directed to: aykas64@gmail.com

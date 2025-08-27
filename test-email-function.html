@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Function Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #39FF14;
+            border-radius: 5px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #39FF14;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #2edc0f;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: rgba(57, 255, 20, 0.2);
+            border: 1px solid #39FF14;
+        }
+        .error {
+            background-color: rgba(255, 0, 0, 0.2);
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Function Test</h1>
+        
+        <div class="test-section">
+            <h2>Test 1: EmailJS Initialization</h2>
+            <button onclick="testEmailJS()">Test EmailJS</button>
+            <div id="emailjs-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Test 2: Outlook Link Creation</h2>
+            <button onclick="testOutlookLink()">Test Outlook Link</button>
+            <div id="outlook-result" class="result"></div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Test 3: Form Submission</h2>
+            <form id="test-form">
+                <div>
+                    <label for="test-email">Email:</label><br>
+                    <input type="email" id="test-email" value="test@example.com" required style="width: 100%; padding: 8px; margin: 5px 0;">
+                </div>
+                <div>
+                    <label for="test-message">Message:</label><br>
+                    <textarea id="test-message" required style="width: 100%; padding: 8px; margin: 5px 0;">This is a test message</textarea>
+                </div>
+                <button type="submit">Test Form Submission</button>
+            </form>
+            <div id="form-result" class="result"></div>
+        </div>
+    </div>
+
+    <!-- EmailJS for form submission -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        (function() {
+            try {
+                emailjs.init("sWI9EUuBLiYp1XRyN");
+                console.log('EmailJS initialized successfully');
+            } catch (error) {
+                console.error('EmailJS initialization failed:', error);
+            }
+        })();
+        
+        function displayResult(elementId, message, isSuccess) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = 'result ' + (isSuccess ? 'success' : 'error');
+        }
+        
+        function testEmailJS() {
+            try {
+                // Check if emailjs is available
+                if (typeof emailjs !== 'undefined' && emailjs && emailjs.send) {
+                    displayResult('emailjs-result', 'EmailJS is properly loaded and initialized', true);
+                } else {
+                    displayResult('emailjs-result', 'EmailJS is not available or not properly initialized', false);
+                }
+            } catch (error) {
+                displayResult('emailjs-result', 'Error testing EmailJS: ' + error.message, false);
+            }
+        }
+        
+        function testOutlookLink() {
+            try {
+                const email = 'test@example.com';
+                const message = 'This is a test message';
+                const collectorEmail = 'grefins.contact@gmail.com';
+                const mailtoSubject = 'Message from GREFINS Website';
+                const mailtoBody = `From: ${email}\n\n${message}`;
+                const mailtoLink = `mailto:${collectorEmail}?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+                
+                // Create a temporary link element
+                const emailLink = document.createElement('a');
+                emailLink.href = mailtoLink;
+                emailLink.style.display = 'none';
+                document.body.appendChild(emailLink);
+                
+                // Check if the link was created correctly
+                if (emailLink.href === mailtoLink) {
+                    displayResult('outlook-result', 'Outlook link created successfully: ' + mailtoLink, true);
+                } else {
+                    displayResult('outlook-result', 'Failed to create Outlook link', false);
+                }
+                
+                // Clean up
+                document.body.removeChild(emailLink);
+            } catch (error) {
+                displayResult('outlook-result', 'Error testing Outlook link: ' + error.message, false);
+            }
+        }
+        
+        document.getElementById('test-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('test-email').value;
+            const message = document.getElementById('test-message').value;
+            
+            try {
+                // Test EmailJS send
+                const templateParams = {
+                    from_name: email,
+                    message: message,
+                    reply_to: email,
+                    to_email: 'grefins.contact@gmail.com'
+                };
+                
+                emailjs.send('service_tebcxzf', 'template_w2yyhcj', templateParams)
+                    .then(function(response) {
+                        displayResult('form-result', 'EmailJS send successful: ' + JSON.stringify(response), true);
+                    })
+                    .catch(function(error) {
+                        displayResult('form-result', 'EmailJS send failed (this is expected in testing): ' + error.text, false);
+                        console.log('EmailJS error details:', error);
+                    });
+            } catch (error) {
+                displayResult('form-result', 'Error in form submission test: ' + error.message, false);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREFINS CSS Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            color: white;
+            background-color: #0D0D0D;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #39FF14;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #39FF14;
+        }
+        .test-css {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+        .success {
+            color: #39FF14;
+            font-weight: bold;
+        }
+        .failure {
+            color: red;
+            font-weight: bold;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #39FF14;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GREFINS Website CSS Test</h1>
+        <p>This page tests if CSS is working properly in your browser.</p>
+        
+        <div class="test-css">
+            <h2>Testing External CSS</h2>
+            <p>Below is a div that uses the external CSS file (styles.css):</p>
+            
+            <div class="hero" style="padding: 20px; min-height: auto;">
+                <h3 class="hero-title" style="font-size: 24px;">This text should be styled if styles.css is loaded</h3>
+                <p class="hero-lead">This text should have specific styling from styles.css</p>
+            </div>
+            
+            <div id="css-status">
+                <p>CSS Status: <span id="status-text" class="failure">Not Loaded</span></p>
+            </div>
+        </div>
+        
+        <a href="index.html" class="button">Return to Main Website</a>
+        
+        <div style="margin-top: 30px;">
+            <h3>Troubleshooting Steps:</h3>
+            <ol>
+                <li>Check if styles.css exists in the same folder as index.html</li>
+                <li>Verify that the file name matches exactly (case-sensitive)</li>
+                <li>Try clearing your browser cache (Ctrl+Shift+Delete)</li>
+                <li>Try using a different browser</li>
+                <li>Check browser developer console for errors (F12)</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if external CSS is loaded by testing a known property
+            const heroTitle = document.querySelector('.hero-title');
+            const heroLead = document.querySelector('.hero-lead');
+            const statusText = document.getElementById('status-text');
+            
+            // Get computed styles
+            const heroTitleStyle = window.getComputedStyle(heroTitle);
+            const heroLeadStyle = window.getComputedStyle(heroLead);
+            
+            // Check if specific CSS properties from styles.css are applied
+            if (heroTitleStyle.fontWeight === '800' || 
+                heroLeadStyle.fontSize === '20px') {
+                statusText.textContent = 'Loaded Successfully';
+                statusText.className = 'success';
+            }
+        });
+    </script>
+</body>
+</html>

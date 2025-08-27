@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREFINS - Minimal Version</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #39FF14;
+        }
+        
+        section {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #FFFFFF;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .feature-item h3 {
+            color: #39FF14;
+            margin-bottom: 10px;
+        }
+        
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+        }
+        
+        button {
+            background-color: #39FF14;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-info {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #B3B3B3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>GREFINS</h1>
+            <p>AI-Powered CBAM Compliance & Green Finance for SMEs</p>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2 class="section-title">What We Offer</h2>
+                <div class="features">
+                    <div class="feature-item">
+                        <h3>EU compliance</h3>
+                        <p>Simplify processes and gain real visibility.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>CBAM reporting</h3>
+                        <p>Make your obligations crystal clear.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Bank integrations</h3>
+                        <p>Reach the right funding quickly.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Risk measurement</h3>
+                        <p>Bank-ready outputs and SME-specific terms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="form-container">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <div class="form-info">
+                            Messages are collected at aykas64@gmail.com
+                        </div>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GREFINS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    if (!email || !email.includes('@')) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+                    
+                    if (!message || message.trim().length < 5) {
+                        alert('Please enter a message (at least 5 characters)');
+                        return;
+                    }
+                    
+                    // Open email client
+                    const mailtoSubject = 'Message from GREFINS Website';
+                    const mailtoBody = `From: ${email}\n\n${message}`;
+                    window.location.href = `mailto:aykas64@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+                    
+                    // Reset form after sending
+                    contactForm.reset();
+                    alert('Your email client has been opened with your message. Please send the email to complete.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

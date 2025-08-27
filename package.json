@@ -1,0 +1,39 @@
+{
+  "name": "grefins-landing-page",
+  "version": "1.0.0",
+  "description": "Premium minimal landing page for GREFINS AI-powered CBAM compliance platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "validate": "echo 'Running HTML validation...' && echo 'Manual validation recommended'"
+  },
+  "keywords": [
+    "grefins",
+    "cbam",
+    "compliance",
+    "green-finance",
+    "sme",
+    "ai-platform",
+    "landing-page",
+    "minimal-design",
+    "obys-style"
+  ],
+  "author": "GREFINS Team",
+  "license": "PROPRIETARY",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grefins/landing-page"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead"
+  ],
+  "devDependencies": {},
+  "dependencies": {}
+}

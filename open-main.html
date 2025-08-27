@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open GREFINS Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0D0D0D;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        h1 {
+            margin-bottom: 30px;
+            color: #39FF14;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #39FF14;
+            color: #0D0D0D;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 5px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        
+        p {
+            margin-top: 30px;
+            max-width: 600px;
+        }
+        
+        .instructions {
+            text-align: left;
+            margin-top: 40px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            max-width: 600px;
+        }
+        
+        .instructions h2 {
+            color: #39FF14;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function openWebsite() {
+            window.location.href = "index.html";
+        }
+        
+        function openInNewTab() {
+            window.open("index.html", "_blank");
+        }
+    </script>
+</head>
+<body>
+    <h1>GREFINS Website Launcher</h1>
+    
+    <button class="button" onclick="openWebsite()">Open Main Website</button>
+    <button class="button" onclick="openInNewTab()">Open in New Tab</button>
+    
+    <div class="instructions">
+        <h2>If Website Still Doesn't Display:</h2>
+        <ol>
+            <li>Try opening in a different browser (Chrome, Firefox, Edge)</li>
+            <li>Clear your browser cache (Ctrl+Shift+Delete)</li>
+            <li>Make sure JavaScript is enabled in your browser</li>
+            <li>Try disabling any browser extensions or ad blockers</li>
+            <li>Right-click on index.html and select "Open with" to choose a specific browser</li>
+        </ol>
+    </div>
+</body>
+</html>
